@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Friendship Meter ❤️</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:Arial,sans-serif;background:radial-gradient(circle at 20% 10%,#42145f,transparent 35%),radial-gradient(circle at 85% 90%,#063d50,transparent 35%),#090817;color:#fff;display:flex;align-items:center;justify-content:center}
+.app{width:min(700px,94vw);height:min(760px,94vh);display:flex;flex-direction:column;gap:14px}
+header{text-align:center}.badge{font-size:10px;letter-spacing:3px;color:#d7a8ff;font-weight:bold}
+h1{font:700 clamp(32px,6vh,50px) Georgia,serif;margin:7px 0}h1 span{color:#ff75c8}
+header p{margin:0;color:#9295aa;font-size:13px}
+.card{flex:1;min-height:0;border:1px solid #ffffff18;border-radius:24px;background:linear-gradient(145deg,#17152b,#0d1020);box-shadow:0 25px 80px #0008;padding:clamp(20px,4vh,38px);display:flex;flex-direction:column;justify-content:center;text-align:center}
+.screen{animation:in .45s ease}.hidden{display:none!important}
+.question{font:700 clamp(23px,4vh,31px) Georgia,serif;margin-bottom:8px}.sub{color:#858ba0;font-size:13px;margin-bottom:22px}
+input{width:100%;max-width:520px;padding:16px;border-radius:13px;border:1px solid #34394e;background:#080b17;color:#fff;font-size:20px;text-align:center;outline:none}
+input:focus{border-color:#e05bb0;box-shadow:0 0 0 4px #e05bb022}
+button{width:100%;max-width:520px;margin-top:12px;padding:15px;border:0;border-radius:13px;background:linear-gradient(100deg,#d6339b,#7c4dff);color:white;font-size:15px;font-weight:bold;cursor:pointer}
+.thinking{display:flex;flex-direction:column;align-items:center;gap:14px}.dots{display:flex;gap:7px}.dots i{width:9px;height:9px;border-radius:50%;background:#ff75c8;animation:dot .7s infinite alternate}.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+.thinking b{color:#cbb8d8;font-size:13px}.result-icon{font-size:60px;animation:heart 1s infinite alternate}
+.names{font-size:18px;color:#d7d9e6;margin:7px 0 20px}.score{font-size:clamp(60px,12vh,100px);font-weight:800;background:linear-gradient(180deg,#fff,#ff75c8);-webkit-background-clip:text;color:transparent;animation:score .8s ease}
+.meter{height:18px;max-width:540px;margin:15px auto 20px;background:#080a14;border-radius:99px;overflow:hidden;border:1px solid #ffffff12}
+.fill{height:100%;width:0;background:linear-gradient(90deg,#7c4dff,#ff4fb3);border-radius:99px;transition:width 2s cubic-bezier(.2,.8,.2,1)}
+.level{font:700 27px Georgia,serif;margin:3px 0 7px}.message{color:#9298ad;font-size:13px;line-height:1.6;margin:0 auto 20px;max-width:500px}
+.again{background:#ffffff0b;border:1px solid #ffffff14}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes dot{to{transform:translateY(-7px);opacity:.45}}@keyframes heart{from{transform:scale(.9)}to{transform:scale(1.12);filter:drop-shadow(0 0 25px #ff4fb388)}}
+@keyframes score{from{opacity:0;transform:scale(.35);filter:blur(8px)}60%{transform:scale(1.12)}to{opacity:1;transform:scale(1)}}
+</style>
+</head>
+<body>
+<main class="app">
+<header><div class="badge">✦ FRIENDSHIP EXPERIMENT</div><h1>Friendship <span>Meter</span> ❤️</h1><p>Let's see what the numbers say about your bond.</p></header>
+<section class="card">
+<div id="name1" class="screen"><div class="question">What's your name?</div><div class="sub">Be honest. The meter is watching. 👀</div><input id="first" type="text" maxlength="30" placeholder="Your name" autocomplete="off"><button id="next1">Continue →</button></div>
+<div id="name2" class="screen hidden"><div class="question">And who is your friend?</div><div class="sub">Enter their name and let's test the connection.</div><input id="second" type="text" maxlength="30" placeholder="Friend's name" autocomplete="off"><button id="calculate">Check our friendship ❤️</button></div>
+<div id="thinking" class="screen hidden"><div class="result-icon">💞</div><div class="thinking"><div class="dots"><i></i><i></i><i></i></div><b id="thinkingText">Reading the friendship signals…</b></div></div>
+<div id="result" class="screen hidden"><div class="result-icon">💖</div><div class="names" id="names"></div><div class="score"><span id="score">0</span>%</div><div class="meter"><div id="fill" class="fill"></div></div><div class="level" id="level"></div><p class="message" id="message"></p><button class="again" onclick="location.reload()">Try another friendship ↻</button></div>
+</section></main>
+<script src="app.js"></script>
+</body></html>
